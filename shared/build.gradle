@@ -2,8 +2,8 @@ apply plugin: 'kotlin-multiplatform'
 
 kotlin {
     targets {
-        final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos")     \
-                                  ? presets.iosArm64 : presets.iosX64
+        final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos")        \
+                                     ? presets.iosArm64 : presets.iosX64
 
         fromPreset(iOSTarget, 'ios') {
             binaries {
@@ -11,7 +11,7 @@ kotlin {
             }
         }
 
-        fromPreset(presets.jvm, 'android')
+        fromPreset(presets.jvm, 'jvm')
     }
 
     sourceSets {
@@ -19,7 +19,7 @@ kotlin {
             implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
         }
 
-        androidMain.dependencies {
+        jvmMain.dependencies {
             implementation 'org.jetbrains.kotlin:kotlin-stdlib'
         }
     }
