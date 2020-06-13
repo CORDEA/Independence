@@ -1,3 +1,4 @@
+include ':backend'
 include ':shared'
 include ':android'
 rootProject.name = "Independence"
